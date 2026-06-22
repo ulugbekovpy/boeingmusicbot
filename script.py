@@ -1,4 +1,4 @@
-import requests
+from curl_cffi import requests
 from bs4 import BeautifulSoup
 import json
 import urllib3
@@ -17,7 +17,7 @@ def search(query):
     }
     
     try:
-        page = requests.get(search_url, headers=headers, verify=False, timeout=10)
+        page = requests.get(search_url, headers=headers, verify=False, timeout=10, impersonate="chrome110")
         print(f"STATUS CODE FROM SITE: {page.status_code}")
         print(f"HTML LENGTH: {len(page.text)}")
         
