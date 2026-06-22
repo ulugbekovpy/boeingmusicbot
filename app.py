@@ -1,15 +1,25 @@
-from fastapi import FastAPI
+import asyncio
+import os
+from aiohttp import web
+from bot import dp, bot 
 
-import uvicorn
+async def handle(request):
+    return web.Response(text="Boeing Music is flying! ✈️")
 
-from script import search
+async def start_web_server():
+    app = web.Application()
+    app.router.add_get('/', handle)
+    runner = web.AppRunner(app)
+    await runner.setup()
+    port = int(os.environ.get("PORT", 8080))
+    site = web.TCPSite(runner, '0.0.0.0', port)
+    await site.start()
+    print(f"Web server started on port {port}")
 
-app = FastAPI()
-
-@app.get("/search/{query}")
-def search_tracks(query: str):
-    result = search(query)
-    return result
+async def main():
+    await start_web_server()
+    print("Bot is starting...")
+    await dp.start_polling(bot)
 
 if __name__ == "__main__":
-    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
+    asyncio.run(main())
