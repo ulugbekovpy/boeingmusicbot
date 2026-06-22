@@ -10,6 +10,8 @@ url = "https://eu.hitmoz.com/"
 def search(query):
     search_url = url + f"search?q={query}"
     page = requests.get(search_url, verify=False)
+    print(f"STATUS CODE FROM SITE: {page.status_code}")
+    print(f"HTML LENGTH: {len(page.text)}")
     soup = BeautifulSoup(page.text, "html.parser")
 
     tracks = soup.find_all("li", class_="tracks__item")
