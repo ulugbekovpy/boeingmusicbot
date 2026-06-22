@@ -1,0 +1,8 @@
+aiofiles==24.1.0
+aiogram==3.13.1
+aiohttp==3.10.11
+beautifulsoup4==4.14.2
+magic-filter==1.0.12
+pydantic==2.8.2
+python-dotenv==1.0.1
+requests==2.32.4
