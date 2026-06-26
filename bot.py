@@ -90,7 +90,7 @@ Navai — Чёрный мерен</i>
 @dp.message(F.text)
 async def handle_music_request(message: types.Message, state: FSMContext):
     request = message.text
-    response = script.search(request) 
+    response = await script.search(request) 
 
     if not response:
         await message.answer("😕 Ничего не нашёл, попробуй другое название.")

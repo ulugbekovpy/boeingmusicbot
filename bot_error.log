@@ -1,0 +1,859 @@
+INFO:aiogram.dispatcher:Start polling
+INFO:aiogram.dispatcher:Run polling for bot @boeingmusicbot id=8958015088 - 'Boeing Music'
+INFO:aiogram.event:Update id=135618678 is handled. Duration 362 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618679 is handled. Duration 5573 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618680 is handled. Duration 264 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618681 is handled. Duration 409 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618682 is handled. Duration 323 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618683 is handled. Duration 13207 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618684 is handled. Duration 337 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618685 is handled. Duration 219 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618686 is handled. Duration 930 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618687 is handled. Duration 511 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618690 is handled. Duration 347 ms by bot id=8958015088
+ERROR:root:Ошибка обновления страницы: Telegram server says - Bad Request: query is too old and response timeout expired or query ID is invalid
+INFO:aiogram.event:Update id=135618689 is handled. Duration 376 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618688 is not handled. Duration 615 ms by bot id=8958015088
+ERROR:aiogram.event:Cause exception while process update id=135618688 by bot id=8958015088
+TelegramBadRequest: Telegram server says - Bad Request: query is too old and response timeout expired or query ID is invalid
+Traceback (most recent call last):
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/bot.py", line 129, in process_page_switch
+    await callback.answer()
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/methods/base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/client/bot.py", line 488, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/client/session/base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/client/session/aiohttp.py", line 189, in make_request
+    response = self.check_response(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/client/session/base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: query is too old and response timeout expired or query ID is invalid
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/fsm/storage/memory.py", line 56, in lock
+    yield
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/bot.py", line 132, in process_page_switch
+    await callback.answer()
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/methods/base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/client/bot.py", line 488, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/client/session/base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/client/session/aiohttp.py", line 189, in make_request
+    response = self.check_response(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/client/session/base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: query is too old and response timeout expired or query ID is invalid
+INFO:aiogram.event:Update id=135618691 is handled. Duration 477 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618692 is handled. Duration 2075 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618693 is handled. Duration 231 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618694 is handled. Duration 1437 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618695 is handled. Duration 6009 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618696 is handled. Duration 17203 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618697 is handled. Duration 481 ms by bot id=8958015088
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+INFO:aiogram.event:Update id=135618698 is handled. Duration 367 ms by bot id=8958015088
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+INFO:aiogram.event:Update id=135618699 is handled. Duration 2815 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618700 is handled. Duration 903 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618701 is handled. Duration 301 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618702 is handled. Duration 432 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618703 is handled. Duration 10101 ms by bot id=8958015088
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+INFO:aiogram.event:Update id=135618704 is handled. Duration 415 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618705 is handled. Duration 157 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618706 is handled. Duration 139 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618707 is handled. Duration 1366 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618708 is handled. Duration 140 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618710 is handled. Duration 690 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618711 is handled. Duration 1212 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618712 is handled. Duration 1018 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618709 is handled. Duration 14967 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - ClientOSError: [Errno 2] Can not write request body for https://api.telegram.org/bot8958015088:AAEYbhXCuX4-4COitcbGDf1P2esI9c1gjyo/sendAudio
+INFO:aiogram.event:Update id=135618713 is handled. Duration 2769 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618717 is handled. Duration 717 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618718 is handled. Duration 335 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618720 is handled. Duration 749 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618721 is handled. Duration 3337 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618714 is handled. Duration 17162 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618723 is handled. Duration 447 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618716 is handled. Duration 16990 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618725 is handled. Duration 3706 ms by bot id=8958015088
+ERROR:root:Ошибка обновления страницы: Telegram server says - Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+INFO:aiogram.event:Update id=135618727 is handled. Duration 565 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - ClientOSError: [Errno 2] Can not write request body for https://api.telegram.org/bot8958015088:AAEYbhXCuX4-4COitcbGDf1P2esI9c1gjyo/sendAudio
+INFO:aiogram.event:Update id=135618722 is handled. Duration 13080 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618729 is handled. Duration 1060 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618719 is handled. Duration 25864 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - ClientOSError: [Errno 2] Can not write request body for https://api.telegram.org/bot8958015088:AAEYbhXCuX4-4COitcbGDf1P2esI9c1gjyo/sendAudio
+INFO:aiogram.event:Update id=135618724 is handled. Duration 20785 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - ClientOSError: [Errno 2] Can not write request body for https://api.telegram.org/bot8958015088:AAEYbhXCuX4-4COitcbGDf1P2esI9c1gjyo/sendAudio
+INFO:aiogram.event:Update id=135618728 is handled. Duration 17032 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618731 is handled. Duration 1232 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618732 is handled. Duration 1106 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - Request timeout error
+INFO:aiogram.event:Update id=135618715 is handled. Duration 71751 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618734 is handled. Duration 21255 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618726 is handled. Duration 63570 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - ClientOSError: [Errno 2] Can not write request body for https://api.telegram.org/bot8958015088:AAEYbhXCuX4-4COitcbGDf1P2esI9c1gjyo/sendAudio
+INFO:aiogram.event:Update id=135618735 is handled. Duration 25046 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - ClientOSError: [Errno 2] Can not write request body for https://api.telegram.org/bot8958015088:AAEYbhXCuX4-4COitcbGDf1P2esI9c1gjyo/sendAudio
+INFO:aiogram.event:Update id=135618737 is handled. Duration 33022 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618741 is handled. Duration 38163 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - ClientOSError: [Errno 2] Can not write request body for https://api.telegram.org/bot8958015088:AAEYbhXCuX4-4COitcbGDf1P2esI9c1gjyo/sendAudio
+INFO:aiogram.event:Update id=135618742 is handled. Duration 24766 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - Request timeout error
+INFO:aiogram.event:Update id=135618733 is handled. Duration 67249 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - Request timeout error
+INFO:aiogram.event:Update id=135618730 is handled. Duration 83700 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618739 is handled. Duration 65559 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - Request timeout error
+INFO:aiogram.event:Update id=135618736 is handled. Duration 81832 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - ClientOSError: [Errno 2] Can not write request body for https://api.telegram.org/bot8958015088:AAEYbhXCuX4-4COitcbGDf1P2esI9c1gjyo/sendAudio
+INFO:aiogram.event:Update id=135618757 is handled. Duration 26677 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - ClientOSError: [Errno 2] Can not write request body for https://api.telegram.org/bot8958015088:AAEYbhXCuX4-4COitcbGDf1P2esI9c1gjyo/sendAudio
+INFO:aiogram.event:Update id=135618760 is handled. Duration 26038 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - ClientOSError: [Errno 2] Can not write request body for https://api.telegram.org/bot8958015088:AAEYbhXCuX4-4COitcbGDf1P2esI9c1gjyo/sendAudio
+INFO:aiogram.event:Update id=135618754 is handled. Duration 33003 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - ClientOSError: [Errno 2] Can not write request body for https://api.telegram.org/bot8958015088:AAEYbhXCuX4-4COitcbGDf1P2esI9c1gjyo/sendAudio
+INFO:aiogram.event:Update id=135618759 is handled. Duration 30196 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - ClientOSError: [Errno 2] Can not write request body for https://api.telegram.org/bot8958015088:AAEYbhXCuX4-4COitcbGDf1P2esI9c1gjyo/sendAudio
+INFO:aiogram.event:Update id=135618756 is handled. Duration 31756 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - ClientOSError: [Errno 2] Can not write request body for https://api.telegram.org/bot8958015088:AAEYbhXCuX4-4COitcbGDf1P2esI9c1gjyo/sendAudio
+INFO:aiogram.event:Update id=135618755 is handled. Duration 33382 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - Request timeout error
+INFO:aiogram.event:Update id=135618738 is handled. Duration 86467 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - ClientOSError: [Errno 2] Can not write request body for https://api.telegram.org/bot8958015088:AAEYbhXCuX4-4COitcbGDf1P2esI9c1gjyo/sendAudio
+INFO:aiogram.event:Update id=135618758 is handled. Duration 32031 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618764 is handled. Duration 3410 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618766 is handled. Duration 2040 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - Request timeout error
+INFO:aiogram.event:Update id=135618740 is handled. Duration 99947 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618749 is handled. Duration 77872 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618744 is handled. Duration 87591 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - Request timeout error
+INFO:aiogram.event:Update id=135618743 is handled. Duration 92867 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - Request timeout error
+INFO:aiogram.event:Update id=135618746 is handled. Duration 85703 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - Request timeout error
+INFO:aiogram.event:Update id=135618745 is handled. Duration 87058 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618763 is handled. Duration 45089 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - Request timeout error
+INFO:aiogram.event:Update id=135618750 is handled. Duration 84149 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - Request timeout error
+INFO:aiogram.event:Update id=135618748 is handled. Duration 84993 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618762 is handled. Duration 63871 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - Request timeout error
+INFO:aiogram.event:Update id=135618751 is handled. Duration 86165 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618753 is handled. Duration 84784 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - Request timeout error
+INFO:aiogram.event:Update id=135618747 is handled. Duration 105853 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - Request timeout error
+INFO:aiogram.event:Update id=135618761 is handled. Duration 88251 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - Request timeout error
+INFO:aiogram.event:Update id=135618752 is handled. Duration 101415 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - Request timeout error
+INFO:aiogram.event:Update id=135618767 is handled. Duration 84099 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - Request timeout error
+INFO:aiogram.event:Update id=135618765 is handled. Duration 101853 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: HTTP Client says - Request timeout error
+INFO:aiogram.event:Update id=135618768 is handled. Duration 88586 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618769 is handled. Duration 39426 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618770 is handled. Duration 35072 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618771 is handled. Duration 10882 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618772 is handled. Duration 16397 ms by bot id=8958015088
+ERROR:root:Ошибка при скачивании/отправке файла: Response payload is not completed: <ContentLengthError: 400, message='Not enough data for satisfy content length header.'>. ConnectionResetError(54, 'Connection reset by peer')
+INFO:aiogram.event:Update id=135618773 is handled. Duration 261513 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618774 is handled. Duration 358 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618775 is handled. Duration 1054 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618776 is handled. Duration 271 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618777 is handled. Duration 289 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618778 is handled. Duration 261 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618779 is handled. Duration 462 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618780 is handled. Duration 438 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618781 is handled. Duration 274 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618782 is handled. Duration 354 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618783 is handled. Duration 527 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618784 is handled. Duration 2396 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618785 is handled. Duration 2128 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618786 is handled. Duration 21867 ms by bot id=8958015088
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.344196 seconds and try again... (tryings = 1, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 2, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+INFO:aiogram.event:Update id=135618787 is handled. Duration 1424 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618788 is handled. Duration 1571 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618789 is handled. Duration 4720 ms by bot id=8958015088
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+INFO:aiogram.event:Update id=135618797 is handled. Duration 1428 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618798 is not handled. Duration 82288 ms by bot id=8958015088
+ERROR:aiogram.event:Cause exception while process update id=135618798 by bot id=8958015088
+ConnectTimeout: HTTPSConnectionPool(host='eu.hitmoz.com', port=443): Max retries exceeded with url: /search?q=%D0%BF%D1%83%D0%BB%D1%8C%D1%81 (Caused by ConnectTimeoutError(<HTTPSConnection(host='eu.hitmoz.com', port=443) at 0x10730f990>, 'Connection to eu.hitmoz.com timed out. (connect timeout=None)'))
+Traceback (most recent call last):
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/urllib3/connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 60] Operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1106, in _validate_conn
+    conn.connect()
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/urllib3/connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<HTTPSConnection(host='eu.hitmoz.com', port=443) at 0x10730f990>, 'Connection to eu.hitmoz.com timed out. (connect timeout=None)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/urllib3/util/retry.py", line 543, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='eu.hitmoz.com', port=443): Max retries exceeded with url: /search?q=%D0%BF%D1%83%D0%BB%D1%8C%D1%81 (Caused by ConnectTimeoutError(<HTTPSConnection(host='eu.hitmoz.com', port=443) at 0x10730f990>, 'Connection to eu.hitmoz.com timed out. (connect timeout=None)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/fsm/storage/memory.py", line 56, in lock
+    yield
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/bot.py", line 93, in handle_music_request
+    response = script.search(request)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/script.py", line 12, in search
+    page = requests.get(search_url, verify=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/requests/adapters.py", line 688, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='eu.hitmoz.com', port=443): Max retries exceeded with url: /search?q=%D0%BF%D1%83%D0%BB%D1%8C%D1%81 (Caused by ConnectTimeoutError(<HTTPSConnection(host='eu.hitmoz.com', port=443) at 0x10730f990>, 'Connection to eu.hitmoz.com timed out. (connect timeout=None)'))
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+INFO:aiogram.event:Update id=135618800 is not handled. Duration 60347 ms by bot id=8958015088
+ERROR:aiogram.event:Cause exception while process update id=135618800 by bot id=8958015088
+TelegramNetworkError: HTTP Client says - Request timeout error
+Traceback (most recent call last):
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiohttp/client.py", line 663, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiohttp/connector.py", line 538, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiohttp/connector.py", line 1050, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiohttp/connector.py", line 1353, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiohttp/connector.py", line 1109, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiohappyeyeballs/impl.py", line 75, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiohappyeyeballs/impl.py", line 210, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/selector_events.py", line 633, in sock_connect
+    return await fut
+           ^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/client/session/aiohttp.py", line 181, in make_request
+    async with session.post(
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiohttp/client.py", line 1360, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiohttp/client.py", line 578, in _request
+    with timer:
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiohttp/helpers.py", line 749, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/fsm/storage/memory.py", line 56, in lock
+    yield
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/bot.py", line 74, in cmd_start
+    await message.answer(
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/methods/base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/client/bot.py", line 488, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/client/session/base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/client/session/aiohttp.py", line 186, in make_request
+    raise TelegramNetworkError(method=method, message="Request timeout error")
+aiogram.exceptions.TelegramNetworkError: HTTP Client says - Request timeout error
+INFO:aiogram.event:Update id=135618799 is not handled. Duration 62032 ms by bot id=8958015088
+ERROR:aiogram.event:Cause exception while process update id=135618799 by bot id=8958015088
+TelegramNetworkError: HTTP Client says - Request timeout error
+Traceback (most recent call last):
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiohttp/client.py", line 663, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiohttp/connector.py", line 538, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiohttp/connector.py", line 1050, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiohttp/connector.py", line 1353, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiohttp/connector.py", line 1109, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiohappyeyeballs/impl.py", line 75, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiohappyeyeballs/impl.py", line 210, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/selector_events.py", line 633, in sock_connect
+    return await fut
+           ^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/client/session/aiohttp.py", line 181, in make_request
+    async with session.post(
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiohttp/client.py", line 1360, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiohttp/client.py", line 578, in _request
+    with timer:
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiohttp/helpers.py", line 749, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/fsm/storage/memory.py", line 56, in lock
+    yield
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/bot.py", line 74, in cmd_start
+    await message.answer(
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/methods/base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/client/bot.py", line 488, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/client/session/base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mac/Desktop/Dev/boeingmusicbot/venv/lib/python3.11/site-packages/aiogram/client/session/aiohttp.py", line 186, in make_request
+    raise TelegramNetworkError(method=method, message="Request timeout error")
+aiogram.exceptions.TelegramNetworkError: HTTP Client says - Request timeout error
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 1.293802 seconds and try again... (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 1.700359 seconds and try again... (tryings = 2, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 2.364296 seconds and try again... (tryings = 3, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 3.236331 seconds and try again... (tryings = 4, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 4.108879 seconds and try again... (tryings = 5, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 5.192632 seconds and try again... (tryings = 6, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 5.024688 seconds and try again... (tryings = 7, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 5.020249 seconds and try again... (tryings = 8, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 4.890580 seconds and try again... (tryings = 9, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 5.021327 seconds and try again... (tryings = 10, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 4.903275 seconds and try again... (tryings = 11, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 5.146600 seconds and try again... (tryings = 12, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 5.092928 seconds and try again... (tryings = 13, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Connect call failed ('149.154.166.110', 443)]
+WARNING:aiogram.dispatcher:Sleep for 4.913852 seconds and try again... (tryings = 14, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 15, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 54] Connection reset by peer
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 54] Connection reset by peer
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 54] Connection reset by peer
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 54] Connection reset by peer
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 54] Connection reset by peer
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 54] Connection reset by peer
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 54] Connection reset by peer
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 54] Connection reset by peer
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 1.459191 seconds and try again... (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 1.981308 seconds and try again... (tryings = 2, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 2.480329 seconds and try again... (tryings = 3, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 4, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 1.391515 seconds and try again... (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 1.708256 seconds and try again... (tryings = 2, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 2.194050 seconds and try again... (tryings = 3, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 2.805871 seconds and try again... (tryings = 4, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+WARNING:aiogram.dispatcher:Sleep for 3.712732 seconds and try again... (tryings = 5, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 4.848203 seconds and try again... (tryings = 6, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 7, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 1.439233 seconds and try again... (tryings = 1, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 2, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 1.372599 seconds and try again... (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 1.720559 seconds and try again... (tryings = 2, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 2.246656 seconds and try again... (tryings = 3, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 2.942285 seconds and try again... (tryings = 4, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 3.838502 seconds and try again... (tryings = 5, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 4.889453 seconds and try again... (tryings = 6, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 5.011433 seconds and try again... (tryings = 7, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 4.960609 seconds and try again... (tryings = 8, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 5.220024 seconds and try again... (tryings = 9, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 4.883326 seconds and try again... (tryings = 10, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 4.901566 seconds and try again... (tryings = 11, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 4.995546 seconds and try again... (tryings = 12, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 5.040134 seconds and try again... (tryings = 13, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 5.020106 seconds and try again... (tryings = 14, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 4.942617 seconds and try again... (tryings = 15, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 4.998091 seconds and try again... (tryings = 16, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 4.994761 seconds and try again... (tryings = 17, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 5.095634 seconds and try again... (tryings = 18, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 4.972324 seconds and try again... (tryings = 19, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 4.822671 seconds and try again... (tryings = 20, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 21, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.201651 seconds and try again... (tryings = 1, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 2, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 1.444455 seconds and try again... (tryings = 1, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 1.815002 seconds and try again... (tryings = 2, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 2.406375 seconds and try again... (tryings = 3, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 3.146334 seconds and try again... (tryings = 4, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 3.841186 seconds and try again... (tryings = 5, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 4.924300 seconds and try again... (tryings = 6, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 5.021406 seconds and try again... (tryings = 7, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 5.015974 seconds and try again... (tryings = 8, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 5.216828 seconds and try again... (tryings = 9, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+WARNING:aiogram.dispatcher:Sleep for 5.164745 seconds and try again... (tryings = 10, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 11, bot id = 8958015088)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8958015088)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 8958015088)
+INFO:aiogram.event:Update id=135618802 is handled. Duration 625 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618803 is handled. Duration 1295 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618804 is handled. Duration 768 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618805 is handled. Duration 7488 ms by bot id=8958015088
+WARNING:aiogram.dispatcher:Received SIGTERM signal
+INFO:aiogram.dispatcher:Polling stopped for bot @boeingmusicbot id=8958015088 - 'Boeing Music'
+INFO:aiogram.dispatcher:Polling stopped
+INFO:aiogram.dispatcher:Start polling
+INFO:aiogram.dispatcher:Run polling for bot @boeingmusicbot id=8958015088 - 'Boeing Music'
+INFO:aiogram.event:Update id=135618806 is handled. Duration 428 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618807 is handled. Duration 1502 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618808 is handled. Duration 5009 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618809 is handled. Duration 1060 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618810 is handled. Duration 318 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618811 is handled. Duration 266 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618812 is handled. Duration 4438 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618813 is handled. Duration 1373 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618814 is handled. Duration 256 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618815 is handled. Duration 334 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618816 is handled. Duration 242 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618817 is handled. Duration 244 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618818 is handled. Duration 282 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618819 is handled. Duration 236 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618820 is handled. Duration 6450 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618821 is handled. Duration 1939 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618822 is handled. Duration 465 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618823 is handled. Duration 244 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618824 is handled. Duration 309 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618825 is handled. Duration 259 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618826 is handled. Duration 415 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618827 is handled. Duration 274 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618828 is handled. Duration 333 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618829 is handled. Duration 261 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618830 is handled. Duration 326 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618831 is handled. Duration 288 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618832 is handled. Duration 253 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618833 is handled. Duration 269 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618834 is handled. Duration 335 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618835 is handled. Duration 282 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618836 is handled. Duration 252 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618837 is handled. Duration 256 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618838 is handled. Duration 1497 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618839 is handled. Duration 8089 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618840 is handled. Duration 10189 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618841 is handled. Duration 555 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618842 is handled. Duration 249 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618843 is handled. Duration 246 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618844 is handled. Duration 242 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618845 is handled. Duration 591 ms by bot id=8958015088
+INFO:aiogram.event:Update id=135618846 is handled. Duration 663 ms by bot id=8958015088
