@@ -1,7 +1,7 @@
 import asyncio
 import logging
 import os
-
+from aiogram.types import URLInputFile
 import aiofiles
 import aiohttp
 import script
@@ -148,51 +148,72 @@ async def send_track(callback: types.CallbackQuery, state: FSMContext):
     track = tracks[index]
     url = track["url"]
 
-    if url.startswith("/"):
-        url = f"https://eu.hitmoz.com{url}"
+    status_message = await callback.message.answer("⚡️ *Нашел! Скачиваю и отправляю трек, подожди секунду...*", parse_mode="Markdown")
 
-    raw_title = f"{track['artist']} — {track['title']}.mp3"
-    clean_title = "".join(
-        c for c in raw_title if c.isalnum() or c in "._- "
-    ).strip()
+    # Исправлено: поддержка динамического URL под домен Muzbomb
+    # if url.startswith("/"):
+    #     url = f"https://muzbomb.net{url}"
 
-    if len(clean_title) > 120:
-        clean_title = clean_title[:116] + ".mp3"
+    # raw_title = f"{track['artist']} — {track['title']}.mp3"
+    # clean_title = "".join(
+    #     c for c in raw_title if c.isalnum() or c in "._- "
+    # ).strip()
 
-    filename = os.path.join(TEMP_DIR, clean_title)
+    # if len(clean_title) > 120:
+    #     clean_title = clean_title[:116] + ".mp3"
 
-    try:
-        connector = aiohttp.TCPConnector(ssl=False)
+    # filename = os.path.join(TEMP_DIR, clean_title)
 
-        async with aiohttp.ClientSession(connector=connector) as session:
-            async with session.get(url) as resp:
-                if resp.status != 200:
-                    await callback.message.answer(
-                        "⚠️ Не удалось скачать трек (сервер музыки выдал ошибку)."
-                    )
-                    return
+    # try:
+    #     connector = aiohttp.TCPConnector(ssl=False)
 
-                async with aiofiles.open(filename, "wb") as f:
-                    async for chunk in resp.content.iter_chunked(1024 * 64):
-                        await f.write(chunk)
+    #     async with aiohttp.ClientSession(connector=connector) as session:
+    #         async with session.get(url) as resp:
+    #             if resp.status != 200:
+    #                 await callback.message.answer(
+    #                     "⚠️ Не удалось скачать трек (сервер музыки выдал ошибку)."
+    #                 )
+    #                 return
 
-        await callback.message.answer_audio(
-            audio=types.FSInputFile(filename),
-            caption="✈️ <b>Boeing Music</b> | Приятного прослушивания\n🔍 Найти ещё: @boeingmusicbot",
+    #             async with aiofiles.open(filename, "wb") as f:
+    #                 async for chunk in resp.content.iter_chunked(1024 * 64):
+    #                     await f.write(chunk)
+
+    #     await callback.message.answer_audio(
+    #         audio=types.FSInputFile(filename),
+    #         caption="✈️ <b>Boeing Music</b> | Приятного прослушивания\n🔍 Найти ещё: @boeingmusicbot",
+    #         parse_mode="html"
+    #     )
+
+    # except Exception as e:
+    #     await callback.message.answer("⚠️ Возникла ошибка при отправке трека.")
+    #     logging.error(f"Ошибка при скачивании/отправке файла: {e}")
+
+    # finally:
+    #     if os.path.exists(filename):
+    #         try:
+    #             os.remove(filename)
+    #         except Exception as e:
+    #             logging.error(f"Не удалось удалить файл {filename}: {e}")
+    # Вместо скачивания файла и передачи bytes/InputFile
+
+    audio_file = URLInputFile(
+        track["url"],
+        filename=f"{track['artist']} - {track['title']}.mp3"
+    )
+
+    # Отправляем аудио с четко прописанными тегами для плеера
+    await callback.message.answer_audio(
+        audio=audio_file,
+        performer=track["artist"],  # Имя артиста в плеере
+        title=track["title"],
+        caption="✈️ <b>Boeing Music</b> | Приятного прослушивания\n🔍 Найти ещё: @boeingmusicbot",
             parse_mode="html"
-        )
-
-    except Exception as e:
-        await callback.message.answer("⚠️ Возникла ошибка при отправке трека.")
-        logging.error(f"Ошибка при скачивании/отправке файла: {e}")
-
-    finally:
-        if os.path.exists(filename):
-            try:
-                os.remove(filename)
-            except Exception as e:
-                logging.error(f"Не удалось удалить файл {filename}: {e}")
-
+    )
+    try:
+            await status_message.delete()
+    except Exception:
+            pass
 
 async def main():
     await bot.delete_webhook(drop_pending_updates=True)
